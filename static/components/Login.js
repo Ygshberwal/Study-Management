@@ -36,7 +36,9 @@ export default {
                 if (res.ok) {
                     console.log("Login successful:", data);
                     localStorage.setItem('auth-token', data.token)
-                    this.$router.push({path:'/', query:{role:data.role}})
+                    localStorage.setItem('role', data.role)
+                    
+                    this.$router.push({path:'/'})
                 } else {
                     this.error=data.message
                     console.error("Login failed with status:", res.status);
